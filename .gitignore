@@ -1,0 +1,267 @@
+# OOD Detection System - .gitignore
+# For public GitHub repository sharing
+
+# ============================================
+# Model Files & Checkpoints
+# ============================================
+# Exclude all trained model weights
+models/
+*.pth
+*.pt
+*.pkl
+*.h5
+*.ckpt
+*.safetensors
+checkpoints/
+*.weights
+
+# ============================================
+# Results & Outputs
+# ============================================
+# Exclude all evaluation results
+results/
+vae_results/
+*.png
+*.jpg
+*.jpeg
+!src/**/*.png
+!src/**/*.jpg
+*.csv
+!requirements.csv
+*.txt
+!requirements.txt
+*.log
+*.out
+
+# ============================================
+# Data & Datasets
+# ============================================
+# Exclude dataset files (too large for GitHub)
+data/
+*.zip
+*.tar
+*.tar.gz
+*.gz
+*.hdf5
+*.h5
+*.npz
+*.npy
+# Keep data structure but ignore contents
+# Uncomment if you want to track empty directories
+# !data/.gitkeep
+
+# ============================================
+# Python Cache & Compiled Files
+# ============================================
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# ============================================
+# Jupyter Notebook
+# ============================================
+.ipynb_checkpoints
+*.ipynb
+# Uncomment to keep example notebooks
+# !examples/*.ipynb
+
+# ============================================
+# IDEs & Editors
+# ============================================
+# VSCode
+.vscode/
+*.code-workspace
+
+# PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ============================================
+# OS Files
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================
+# Docker
+# ============================================
+# Docker volumes (if any)
+docker-volumes/
+.dockerignore
+
+# ============================================
+# Environment & Secrets
+# ============================================
+# Environment variables
+.env
+.env.local
+.env.*.local
+*.env
+
+# Secrets & API keys
+secrets/
+*.key
+*.pem
+*.cert
+config.ini
+secrets.yaml
+secrets.yml
+
+# ============================================
+# Temporary Files
+# ============================================
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+*.swp
+*.swo
+*~
+
+# ============================================
+# TensorBoard & MLflow
+# ============================================
+runs/
+logs/
+tensorboard/
+mlruns/
+.wandb/
+
+# ============================================
+# Project Specific
+# ============================================
+# Keep source code structure but ignore generated files
+# Uncomment if you want to track empty result directories
+# !results/.gitkeep
+# !models/.gitkeep
+
+# Temporary experiment files
+experiments/
+exp_*/
+run_*/
+wandb/
+
+# ============================================
+# Large Files (Git LFS alternative)
+# ============================================
+# If using Git LFS, uncomment and configure
+# *.pth filter=lfs diff=lfs merge=lfs -text
+# *.pt filter=lfs diff=lfs merge=lfs -text
+
+# ============================================
+# Documentation Build
+# ============================================
+# If you generate docs
+docs/_build/
+docs/.doctrees/
+site/
+
+# ============================================
+# Keep Important Files
+# ============================================
+# Explicitly keep important files (if needed)
+!README.md
+!SYSTEM_STRUCTURE.md
+!DOCKER_USAGE_GUIDE.md
+!LICENSE
+!.gitignore
+!docker-compose.yml
+!docker/Dockerfile.*
+!scripts/*.sh
+
+

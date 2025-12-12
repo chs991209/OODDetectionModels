@@ -1,0 +1,163 @@
+================================================================================
+GIT TRACKED FILES AND DIRECTORIES
+================================================================================
+This file lists all files and directories that will be tracked by Git
+(not ignored by .gitignore) when you commit to the repository.
+
+Generated: $(date)
+Repository: OOD Detection System
+
+================================================================================
+ROOT DIRECTORY FILES
+================================================================================
+
+.gitignore
+docker-compose.yml
+SYSTEM_STRUCTURE.md
+DOCKER_USAGE_GUIDE.md
+
+================================================================================
+DOCKER CONFIGURATION
+================================================================================
+
+docker/
+├── Dockerfile.classifier
+└── Dockerfile.vae
+
+================================================================================
+SCRIPTS
+================================================================================
+
+scripts/
+└── download_data.sh
+
+================================================================================
+SOURCE CODE - CLASSIFIER METHOD
+================================================================================
+
+src/
+└── Animals-10/
+    └── classifier/
+        ├── detect_ood.py          # Single image OOD detection
+        ├── evaluate_ood.py       # Batch evaluation script
+        ├── model.py              # ResNet18 model with MC Dropout
+        └── train.py              # Training script
+
+================================================================================
+SOURCE CODE - VAE METHOD
+================================================================================
+
+src/
+└── Animals-10/
+    └── vae/
+        ├── evaluate_ood.py       # VAE evaluation script
+        ├── model.py              # Bayesian VAE architecture
+        └── train.py              # VAE training script
+
+================================================================================
+ADDITIONAL FILES
+================================================================================
+
+src/
+└── ood_result.png                # Example result image (if exists)
+
+================================================================================
+DIRECTORY STRUCTURE (TRACKED)
+================================================================================
+
+OOD/
+├── .gitignore                    [TRACKED]
+├── docker-compose.yml            [TRACKED]
+├── SYSTEM_STRUCTURE.md           [TRACKED]
+├── DOCKER_USAGE_GUIDE.md         [TRACKED]
+├── docker/                       [TRACKED]
+│   ├── Dockerfile.classifier    [TRACKED]
+│   └── Dockerfile.vae           [TRACKED]
+├── scripts/                      [TRACKED]
+│   └── download_data.sh         [TRACKED]
+└── src/                          [TRACKED]
+    ├── Animals-10/
+    │   ├── classifier/           [TRACKED]
+    │   │   ├── detect_ood.py    [TRACKED]
+    │   │   ├── evaluate_ood.py  [TRACKED]
+    │   │   ├── model.py         [TRACKED]
+    │   │   └── train.py         [TRACKED]
+    │   └── vae/                  [TRACKED]
+    │       ├── evaluate_ood.py  [TRACKED]
+    │       ├── model.py         [TRACKED]
+    │       └── train.py         [TRACKED]
+    └── ood_result.png            [TRACKED] (if exists)
+
+================================================================================
+EXCLUDED FROM GIT (IGNORED BY .gitignore)
+================================================================================
+
+The following are NOT tracked (excluded by .gitignore):
+
+❌ models/                         # Model weights (.pth files)
+❌ results/                        # Evaluation results
+❌ vae_results/                    # VAE-specific results
+❌ data/                           # Dataset files
+❌ *.zip                           # Archive files
+❌ __pycache__/                    # Python cache
+❌ *.pyc, *.pyo                    # Compiled Python files
+❌ .vscode/, .idea/                # IDE configuration
+❌ .DS_Store, Thumbs.db            # OS files
+❌ *.log, *.out                    # Log files
+❌ *.csv (except requirements.csv) # CSV files
+❌ *.png, *.jpg (except in src/)   # Image files (except source images)
+
+================================================================================
+FILE COUNT SUMMARY
+================================================================================
+
+Total Tracked Files: 14
+
+Breakdown by Type:
+- Python Source Files (.py):     8 files
+- Docker Files:                   3 files
+- Documentation (.md):            2 files
+- Configuration (.yml):           1 file
+- Shell Scripts (.sh):            1 file
+- Images (.png in src/):          1 file (if exists)
+
+Breakdown by Directory:
+- Root:                           4 files
+- docker/:                        2 files
+- scripts/:                       1 file
+- src/Animals-10/classifier/:     4 files
+- src/Animals-10/vae/:            3 files
+- src/:                           1 file (optional)
+
+================================================================================
+QUICK REFERENCE
+================================================================================
+
+To see what will be tracked:
+    git status
+
+To see all tracked files:
+    git ls-files
+
+To add all tracked files:
+    git add .
+
+To check what would be added (dry run):
+    git add -n .
+
+================================================================================
+NOTES FOR TEAMMATES
+================================================================================
+
+1. Model files (.pth) are NOT included - teammates need to train models locally
+2. Dataset files are NOT included - teammates need to provide their own data
+3. Results are NOT included - generated locally when running evaluations
+4. All source code IS included - ready to use
+5. Docker configuration IS included - ready to build containers
+6. Documentation IS included - SYSTEM_STRUCTURE.md and DOCKER_USAGE_GUIDE.md
+
+================================================================================
+END OF FILE
+================================================================================
+
+

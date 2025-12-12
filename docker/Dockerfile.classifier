@@ -1,0 +1,18 @@
+# 베이스 이미지는 그대로 유지
+FROM nvcr.io/nvidia/pytorch:23.10-py3
+
+# 필요한 패키지 설치
+# NumPy는 PyTorch에 포함되어 있을 수 있지만, 명시적으로 설치
+RUN pip install torchvision pillow numpy pandas matplotlib
+
+# [수정 1] 작업 디렉토리를 최상위 (/app)로 설정
+# 컨테이너에 접속하거나 명령어를 실행할 때 /app 에서 시작하게 됩니다.
+WORKDIR /app
+
+# [수정 2] 소스 코드 복사 라인 제거 (COPY src/ /app/src/)
+# -> docker-compose.yml의 volumes 설정이 호스트 코드를 실시간으로 연결해 줍니다.
+#    따라서 여기서 미리 복사할 필요가 없습니다.
+
+# [수정 3] 기본 명령어 설정
+# 컨테이너가 종료되지 않고 계속 대기하도록 설정합니다. (docker-compose.yml의 command와 동일)
+CMD ["tail", "-f", "/dev/null"]

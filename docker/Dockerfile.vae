@@ -1,0 +1,23 @@
+# H100 최적화 PyTorch 이미지 (CUDA 12.x, cuDNN, TensorRT 포함)
+FROM nvcr.io/nvidia/pytorch:23.10-py3
+
+# 필요한 패키지 설치
+# 필요한 라이브러리 추가
+RUN pip install --no-cache-dir \
+    matplotlib \
+    pandas \
+    scikit-learn \
+    opencv-python-headless \
+    tqdm \
+    ipykernel \
+    torchvision \
+    pillow # VAE 코드에서 이미지 로드에 필요
+
+# [핵심 수정] 작업 디렉토리를 /app으로 통일 (Classifier와 일치)
+WORKDIR /app
+
+# [수정] 소스 코드 복사 라인 제거 (COPY)
+# -> docker-compose.yml의 volumes 설정이 호스트 코드를 /app/src에 연결함
+
+# 기본 명령어 설정 (컨테이너가 종료되지 않고 계속 대기)
+CMD ["tail", "-f", "/dev/null"]
