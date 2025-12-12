@@ -258,6 +258,7 @@ site/
 !README.md
 !SYSTEM_STRUCTURE.md
 !DOCKER_USAGE_GUIDE.md
+!GIT_TRACKED_FILES.txt
 !LICENSE
 !.gitignore
 !docker-compose.yml
