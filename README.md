@@ -2,6 +2,17 @@
 
 Out-of-Distribution (OOD) Detection system using two different approaches: Classifier-based (ResNet18 + MC Dropout) and VAE-based (Bayesian Variational Autoencoder) methods.
 
+
+## Contribution
+
+최현수(Hyunsu Choi) - 브레인스토밍, 코드 작성, 발표 자료 구성 및 제작, 데이터셋 수집
+<br>
+심준호(Junho Sim) - 브레인스토밍, 코드 리뷰 및 수정, 발표 자료 제작, 데이터셋 수집
+<br>
+신무현(Muhyun Sin) - 브레인스토밍, 코드 리뷰, 발표 자료 제작, 데이터셋 수집
+<br>
+채경원(Kyungwon Chae) - 브레인스토밍, 코드 리뷰, 발표 자료 구성 및 제작, 데이터셋 수집
+
 ## 📋 Table of Contents
 
 1. [Overview](#overview)
