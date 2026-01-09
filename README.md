@@ -1,6 +1,6 @@
 # OOD Detection System
 
-Out-of-Distribution (OOD) Detection system using two different approaches: Classifier-based (ResNet18 + MC Dropout) and VAE-based (Bayesian Variational Autoencoder) methods.
+Out-of-Distribution (OOD) Detection system using two different approaches: Classifier-based (ResNet18 + MC Dropout) and VAE-based CVAE (Bayesian Convolutional Variational Autoencoder) methods.
 
 
 ## Contribution
