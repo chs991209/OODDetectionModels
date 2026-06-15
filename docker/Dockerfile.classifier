@@ -1,9 +1,17 @@
-# 베이스 이미지는 그대로 유지
+# RTX 4090 (Ada Lovelace, sm_89) PyTorch 이미지 (CUDA 12.x, cuDNN, TensorRT 포함)
 FROM nvcr.io/nvidia/pytorch:23.10-py3
 
-# 필요한 패키지 설치
-# NumPy는 PyTorch에 포함되어 있을 수 있지만, 명시적으로 설치
-RUN pip install torchvision pillow numpy pandas matplotlib
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1 \
+    CUDA_MODULE_LOADING=LAZY
+
+RUN pip install --no-cache-dir \
+    torchvision \
+    pillow \
+    numpy \
+    pandas \
+    matplotlib \
+    tqdm
 
 # [수정 1] 작업 디렉토리를 최상위 (/app)로 설정
 # 컨테이너에 접속하거나 명령어를 실행할 때 /app 에서 시작하게 됩니다.

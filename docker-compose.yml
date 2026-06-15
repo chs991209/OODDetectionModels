@@ -1,17 +1,25 @@
-version: "2.3"
-
 services:
   # 1. VAE Service (경로 수정됨)
   vae:
     build:
       context: .
       dockerfile: docker/Dockerfile.vae
-    image: ood-vae:h100
+    image: ood-vae:rtx4090
     container_name: ood_vae_container
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True"
+      - OMP_NUM_THREADS=4
       - TZ=Asia/Seoul
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      stack:
+        soft: 67108864
+        hard: 67108864
 
     volumes:
       # [수정] 소스 코드: /workspace/src -> /app/src
@@ -31,7 +39,7 @@ services:
 
     ports:
       - "8888:8888"
-    shm_size: '32gb'
+    shm_size: '16gb'
 
     # [참고] 컨테이너 시작 시 작업 디렉토리를 /app으로 설정하고 싶다면 working_dir 추가 가능
     working_dir: /app
@@ -51,7 +59,17 @@ services:
     runtime: nvidia
     environment:
       - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+      - "PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True"
+      - OMP_NUM_THREADS=4
       - TZ=Asia/Seoul
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+      stack:
+        soft: 67108864
+        hard: 67108864
 
     # [설정] Shared Memory (PyTorch DataLoader 속도 향상)
     shm_size: '16gb'

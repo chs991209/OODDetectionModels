@@ -43,14 +43,24 @@ class BayesianVAE(nn.Module):
         logvar = self.fc_logvar(x)
         z = self.reparameterize(mu, logvar)
 
-        # [수정된 부분]
         # z(128) -> decoder_input -> (8192) -> decoder -> 이미지 복원
         x_recon = self.decoder_input(z)
         reconstruction = self.decoder(x_recon)
         return reconstruction, mu, logvar
 
 
-def vae_loss_function(recon_x, x, mu, logvar):
+def vae_loss_function(recon_x, x, mu, logvar, beta=0.1):  # [수정] beta 파라미터 추가
+    recon_x = recon_x.float()
+    x = x.float()
+    mu = mu.float()
+    logvar = logvar.float()
+
+    # 복원 오차 (Reconstruction Loss)
     BCE = F.mse_loss(recon_x, x, reduction='sum')
+
+    # 정규화 오차 (KLD)
     KLD = -0.5 * torch.sum(1 + logvar - mu.pow(2) - logvar.exp())
-    return BCE + KLD
+
+    # [핵심 아키텍처 수정] KLD의 영향력을 10%로 축소하여 사후 붕괴 강제 방지
+    # 인코더가 동물의 디테일한 특징을 잠재 공간에 기록하도록 유도합니다.
+    return BCE + (beta * KLD)
